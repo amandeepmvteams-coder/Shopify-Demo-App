@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "51ba93a4982ed0efe117a2e87fbfc534"
-application_url = "https://draws-saturday-incoming-renaissance.trycloudflare.com"
+application_url = "https://shopify-demo-backend-0siu.onrender.com"
 embedded = true
 name = "dummy-product-app"
 
@@ -33,7 +33,7 @@ compliance_topics = [ "customers/data_request", "customers/redact", "shop/redact
 uri = "/api/webhooks"
 
 [auth]
-redirect_urls = [ "https://draws-saturday-incoming-renaissance.trycloudflare.com/api/auth","https://draws-saturday-incoming-renaissance.trycloudflare.com/api/auth/callback", ]
+redirect_urls = [ "https://shopify-demo-backend-0siu.onrender.com/api/auth","https://shopify-demo-backend-0siu.onrender.com/api/auth/callback", ]
 
 [build]
 automatically_update_urls_on_dev = true

@@ -1,4 +1,4 @@
-const localUrl = "https://digit-hour-prisoner-pole.trycloudflare.com";
+const localUrl = "https://shopify-demo-backend-0siu.onrender.com";
 const shop = Shopify.shop;
 
 const storefrontSessionId = (() => {
