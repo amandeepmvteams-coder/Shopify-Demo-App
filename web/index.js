@@ -20,9 +20,9 @@ import productRoutes from './routes/productRoute.js'
 import orderRoutes from './routes/orderRoute.js'
 import boosterRoutes from './routes/boosterRoute.js'
 import planRoutes from './routes/plansRoute.js'
-import {
-  startProductSyncWorker
-} from "./workers/product-sync.worker.js";
+// import {
+//   startProductSyncWorker
+// } from "./workers/product-sync.worker.js";
 import {
   getPublishBoosters
 } from "./controller/boosterController.js";
@@ -99,7 +99,7 @@ app.use('/api/subscription', planRoutes)
 app.post("/creditsBannerView", recordBannerView);
 app.get('/getAllPublishBooster', getPublishBoosters)
 
-startProductSyncWorker(shopify);
+// startProductSyncWorker(shopify);
 app.use(shopify.cspHeaders());
 app.use(serveStatic(STATIC_PATH, {
   index: false

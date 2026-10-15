@@ -6,7 +6,8 @@
   "scripts": {
     "debug": "node --inspect-brk index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js --ignore ./frontend",
-    "serve": "cross-env NODE_ENV=production node index.js"
+    "serve": "cross-env NODE_ENV=production node index.js",
+    "worker": "node workers/run-product-sync.worker.js"
   },
   "type": "module",
   "engines": {
