@@ -115,7 +115,6 @@ export default function AddProduct({ onProductCreated }) {
                 );
             }
 
-            console.log("Created product:", data);
             onProductCreated()
             resetForm();
 

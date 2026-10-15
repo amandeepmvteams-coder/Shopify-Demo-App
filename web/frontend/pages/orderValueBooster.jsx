@@ -66,7 +66,6 @@ const OrderValueBooster = () => {
                 );
             }
 
-            console.log("Subscription status:", result.status);
 
             // Remove the tracking parameter after successful synchronization.
             params.delete("subscriptionAttemptId");

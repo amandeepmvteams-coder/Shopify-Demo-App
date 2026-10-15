@@ -60,7 +60,6 @@ export default function OrderPage() {
             console.log(error)
         }
     }
-    console.log(selectedOrder);
 
     return (
         <s-section accessibilityLabel="Order Page Section" padding='none' >

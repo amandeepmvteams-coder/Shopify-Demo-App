@@ -56,7 +56,7 @@ async function canDisplayBanner(booster, placement) {
                 return false;
             }
 
-            console.log("Banner credit approved:", result.data);
+           
             return true;
         } catch (error) {
             console.error("Banner credit request failed:", error);
@@ -195,7 +195,6 @@ async function getCartData() {
         throw new Error("Failed to fetch cart data");
     }
     res = await res.json();
-    console.log("Cart Data Result:", res);
 
     return res;
 }
@@ -203,7 +202,7 @@ async function getCartData() {
 // Loading DOM Content On Reload 
 document.addEventListener("DOMContentLoaded", async function () {
 
-    console.log("-----Inside Dom Version 99.O----- ");
+    console.log("-----Inside Dom Version 9.O----- ");
 
     const announcementBoosters =
         await fetchPublishAnnouncementBoosters();
@@ -313,9 +312,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     } else {
         console.log("Product booster hidden or credit limit reached");
     }
-    // else {
-    //     console.log("Product booster condition not satisfied");
-    // }
+  
 
 
 
@@ -553,7 +550,6 @@ async function fetchPublishBoosters() {
             throw new Error(`Failed to fetch data. Status: ${response.status}`);
         }
         const data = await response.json()
-        console.log("PublishBooster:", data.data);
 
         return data.data
 
@@ -976,25 +972,21 @@ function updateProgressBar(
 }
 
 window.addEventListener("SCE:add", async function (event) {
-    console.log("Cart add");
     await refreshAnnouncementMessage();
     await refreshBooster();
 });
 
 window.addEventListener("SCE:update", async function (event) {
-    console.log("Cart update");
     await refreshAnnouncementMessage();
     await refreshBooster();
 });
 
 window.addEventListener("SCE:clear", async function (event) {
-    console.log("Cart cleared");
     await refreshAnnouncementMessage();
     await refreshBooster();
 });
 
 window.addEventListener("SCE:change", async function (event) {
-    console.log("Cart changed ");
     await refreshAnnouncementMessage();
 
     await refreshBooster();

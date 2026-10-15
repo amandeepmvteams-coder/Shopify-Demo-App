@@ -152,7 +152,6 @@ export default function ProductsPage() {
 
       const data = await response.json();
       handleRefresh()
-      console.log(data);
     } catch (error) {
       console.error(error);
     }

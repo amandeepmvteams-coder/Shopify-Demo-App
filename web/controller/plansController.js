@@ -67,15 +67,7 @@ export const createAppSubscription = async (req, res) => {
                 message: "test must be a boolean"
             });
         }
-        console.log("Subscription request:", {
-            shop: res.locals.shopify?.session?.shop,
-            hasSession: Boolean(res.locals.shopify?.session),
-            name: req.body?.name,
-            lineItems: req.body?.lineItems,
-            returnUrl: req.body?.returnUrl,
-            test: req.body?.test,
-            trialDays: req.body?.trialDays,
-        });
+        
         const shop = res.locals.shopify.session.shop;
         const client = await getShopifyClient(shopify, shop)
         // Check whether this shop has ever had a paid subscription record
@@ -97,11 +89,7 @@ export const createAppSubscription = async (req, res) => {
         const effectiveTrialDays =
             existingPaidSubscriptions.length === 0 ? 7 : 0;
 
-        console.log("Trial test result:", {
-            shop,
-            existingPaidSubscriptions: existingPaidSubscriptions.length,
-            effectiveTrialDays,
-        });
+       
         const attemptId = randomUUID();
 
         const callbackUrl = new URL(returnUrl);
@@ -191,11 +179,7 @@ export const createAppSubscription = async (req, res) => {
                 session.shop,
                 subscription.id
             );
-            console.log("Selected plan code:", selectedPlanCode);
-            console.log(
-                "Previous active subscriptions cancelled:",
-                cancelledSubscriptions
-            );
+           
 
             // 4. Insert subscription into PostgreSQL
 
@@ -298,19 +282,13 @@ export const createAppSubscription = async (req, res) => {
                 savedSubscription = rows[0];
 
 
-                console.log("Reused inactive subscription record:", savedSubscription.id);
             } else {
                 // No reusable inactive record exists, so insert a new one
                 savedSubscription = await insertSubscription(subscriptionData);
 
-                console.log("Inserted new subscription record:", savedSubscription.id);
             }
 
 
-            console.log(
-                "Subscription saved to database:",
-                savedSubscription.shopify_subscription_id
-            );
         } catch (error) {
             // Shopify already created the subscription.
             // Don't prevent the merchant from receiving the confirmation URL.
@@ -409,7 +387,6 @@ export const syncSubscriptionStatus = async (req, res) => {
 
         const subscription = response.data?.node;
 
-        console.log("Sync Subscription Shopify GraphQl Api :", subscription);
 
 
         if (!subscription?.status) {

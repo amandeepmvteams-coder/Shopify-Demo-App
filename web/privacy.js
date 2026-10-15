@@ -98,7 +98,7 @@ export default {
     callback: async (topic, shop, body, webhookId) => {
       try {
         const payload = JSON.parse(body);
-        console.log("PRODUCT_UPDATE_PAYLOAD:", JSON.stringify(payload, null, 2))
+      
 
         await handleProductUpdateWebhook(shop, payload)
 
@@ -123,7 +123,7 @@ export default {
     callback: async (topic, shop, body, webhookId) => {
       try {
         const payload = JSON.parse(body);
-        console.log("PRODUCT_CREATE_PAYLOAD:", JSON.stringify(payload, null, 2))
+      
 
         await handleProductCreateWebhook(shop, payload)
 
@@ -151,7 +151,7 @@ export default {
     callback: async (topic, shop, body, webhookId) => {
       try {
         const payload = JSON.parse(body);
-        console.log("PRODUCT_DELETE_PAYLOAD:", JSON.stringify(payload, null, 2))
+      
 
         await handleProductDeleteWebhook(shop, payload)
 
@@ -178,10 +178,7 @@ export default {
         const payload =
           typeof body === "string" ? JSON.parse(body) : body;
 
-        console.log(
-          "APP_UNINSTALLED:",
-          JSON.stringify(payload, null, 2)
-        );
+       
 
         // Use the shop domain from the uninstall payload
         const shopDomain = payload.shop_domain || shop;
@@ -198,10 +195,7 @@ export default {
             shopDomain
           );
 
-        console.log(
-          "Active paid subscriptions deactivated:",
-          updatedSubscriptions.length
-        );
+       
       } catch (error) {
         console.error(
           "APP_UNINSTALLED webhook failed:",
