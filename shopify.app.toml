@@ -36,4 +36,4 @@ uri = "/api/webhooks"
 redirect_urls = [ "https://shopify-demo-backend-0siu.onrender.com/api/auth","https://shopify-demo-backend-0siu.onrender.com/api/auth/callback", ]
 
 [build]
-automatically_update_urls_on_dev = true
+automatically_update_urls_on_dev = false
