@@ -526,9 +526,7 @@ async function fetchPublishCartDrawerBoosters() {
 
 
     try {
-        const response = await fetch(`${localUrl}/getAllPublishBooster?shop=${shop}&type=cart-page`, {
-            headers
-        })
+        const response = await fetch(`${localUrl}/getAllPublishBooster?shop=${shop}&type=cart-page`)
         if (!response.ok) {
             throw new Error(`Failed to fetch data. Status: ${response.status}`);
         }
@@ -550,9 +548,7 @@ async function fetchPublishBoosters() {
 
 
     try {
-        const response = await fetch(`${localUrl}/getAllPublishBooster?shop=${shop}&type=product-page`, {
-            headers
-        })
+        const response = await fetch(`${localUrl}/getAllPublishBooster?shop=${shop}&type=product-page`)
         if (!response.ok) {
             throw new Error(`Failed to fetch data. Status: ${response.status}`);
         }
@@ -573,9 +569,7 @@ async function fetchPublishAnnouncementBoosters() {
 
 
     try {
-        const response = await fetch(`${localUrl}/getAllPublishBooster?shop=${shop}&type=announcement`, {
-            headers
-        })
+        const response = await fetch(`${localUrl}/getAllPublishBooster?shop=${shop}&type=announcement`)
         if (!response.ok) {
             throw new Error(`Failed to fetch data. Status: ${response.status}`);
         }
