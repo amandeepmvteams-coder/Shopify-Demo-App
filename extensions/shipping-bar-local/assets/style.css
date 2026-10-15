@@ -1,0 +1,59 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#progressBarBackground {
+    display: block;
+    height: 5px;
+    width: 100%;
+}
+
+#progressBar {
+    display: block;
+    height: 5px;
+
+}
+
+#containerCartDrawer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#progressBarBackgroundCartDrawer {
+    display: block;
+    height: 5px;
+    width: 100%;
+}
+
+#progressBarCartDrawer {
+    display: block;
+    height: 5px;
+
+}
+
+#containerCartPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#progressBarBackgroundCartPage {
+    display: block;
+    height: 5px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#progressBarCartPage {
+    display: block;
+    height: 5px;
+    width: 0%;
+    transition: width 0.8s ease-in-out;
+    will-change: width;
+}

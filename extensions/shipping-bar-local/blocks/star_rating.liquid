@@ -1,0 +1,67 @@
+{% assign avg_rating = block.settings.product.metafields.demo.avg_rating.value | round %}
+<script>
+  window.boosterContext = {
+    pageType: "{{ request.page_type }}",
+    productId: "{{ product.id }}",
+    collectionIds: [
+      {% for collection in product.collections %}
+        "{{ collection.id }}"{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  };
+</script>
+
+{{ 'style.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'script.js' | asset_url }}" defer></script>
+
+<div id="freeShippingBanner" style="display: none;" >
+  <div id="container">
+
+      <h1 id="messages">Free shipping for orders over $50.00!</h1>
+      <div id="progressBarBackground">
+      <div id="progressBar"></div>
+      </div>
+  </div>
+
+</div>
+<div id="freeShippingBannerCartDrawer" style="display: none;" >
+  <div id="containerCartDrawer">
+
+      <h1 id="messagesCartDrawer">Free shipping for orders over $50.00!</h1>
+      <div id="progressBarBackgroundCartDrawer">
+      <div id="progressBarCartDrawer"></div>
+      </div>
+  </div>
+
+</div>
+<div id="freeShippingBannerCartPage" style="display: none;" >
+  <div id="containerCartPage">
+
+      <h1 id="messagesCartPage">Free shipping for orders over $50.00!</h1>
+      <div id="progressBarBackgroundCartPage">
+      <div id="progressBarCartPage"></div>
+      </div>
+  </div>
+
+</div>
+
+<div id="freeShippingBannerAnnouncementBar" style="display: none;">
+    <div id="containerAnnouncementBar">
+        <h1 id="messagesAnnouncementBar">
+            Free shipping for orders over $50.00!
+        </h1>
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Star Rating",
+  "target": "body",
+  "settings": [
+    { "type": "product", "id": "product", "label": "product", "autofill": true },
+    { "type": "color", "id": "colour", "label": "Star Colour", "default": "#ff0000" }
+  ]
+}
+{% endschema %}
+

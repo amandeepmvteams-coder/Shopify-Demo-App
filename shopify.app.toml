@@ -1,0 +1,39 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "51ba93a4982ed0efe117a2e87fbfc534"
+application_url = "https://draws-saturday-incoming-renaissance.trycloudflare.com"
+embedded = true
+name = "dummy-product-app"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products, read_orders, write_orders,read_customers,write_inventory,read_locations"
+
+[webhooks]
+api_version = "2026-10"
+[[webhooks.subscriptions]]
+topics = [ "products/update" ]
+uri = "/api/webhooks"
+
+[[webhooks.subscriptions]]
+topics = [ "products/create" ]       
+uri = "/api/webhooks"
+
+[[webhooks.subscriptions]]
+topics = [ "products/delete" ]       
+uri = "/api/webhooks"
+
+[[webhooks.subscriptions]]
+topics = [ "app/uninstalled" ]       
+uri = "/api/webhooks"
+
+
+[[webhooks.subscriptions]]
+compliance_topics = [ "customers/data_request", "customers/redact", "shop/redact" ]
+uri = "/api/webhooks"
+
+[auth]
+redirect_urls = [ "https://draws-saturday-incoming-renaissance.trycloudflare.com/api/auth","https://draws-saturday-incoming-renaissance.trycloudflare.com/api/auth/callback", ]
+
+[build]
+automatically_update_urls_on_dev = true
