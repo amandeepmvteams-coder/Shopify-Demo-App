@@ -7,7 +7,8 @@
     "debug": "node --inspect-brk index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js --ignore ./frontend",
     "serve": "cross-env NODE_ENV=production node index.js",
-    "worker": "node workers/run-product-sync.worker.js"
+    "worker": "node workers/run-product-sync.worker.js",
+    "start:all": "concurrently --kill-others \"npm run serve\" \"npm run worker\""
   },
   "type": "module",
   "engines": {
@@ -20,6 +21,7 @@
     "axios": "^1.20.0",
     "bullmq": "^6.3.10",
     "compression": "^1.7.4",
+    "concurrently": "^10.0.6",
     "cors": "^2.8.6",
     "cross-env": "^7.0.3",
     "dotenv": "^18.0.4",
