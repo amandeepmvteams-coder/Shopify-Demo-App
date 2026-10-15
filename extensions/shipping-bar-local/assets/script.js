@@ -15,6 +15,9 @@ const storefrontSessionId = (() => {
 })();
 const bannerCreditChecks = new Map();
 
+const headers = {
+    "Content-Type": "application/json",
+};
 
 async function canDisplayBanner(booster, placement) {
     const bannerId = booster?.id ?? booster?.name ?? booster?.type;
@@ -26,10 +29,7 @@ async function canDisplayBanner(booster, placement) {
 
     const checkPromise = (async () => {
         try {
-            const headers = {
-                "Access-Control-Allow-Origin": "*", // Ensure that CORS is configured on the server
-                "Content-Type": "application/json",
-            };
+
             const response = await fetch(
                 `${localUrl}/creditsBannerView?shop=${encodeURIComponent(shop)}`, {
                     method: "POST",
@@ -523,10 +523,7 @@ function applyBoosterDesign(booster, type = "product") {
 // Cart Page Publish Booster  Api Call Function 
 async function fetchPublishCartDrawerBoosters() {
 
-    const headers = {
-        "Access-Control-Allow-Origin": "*", // Ensure that CORS is configured on the server
-        "Content-Type": "application/json",
-    };
+
 
     try {
         const response = await fetch(`${localUrl}/getAllPublishBooster?shop=${shop}&type=cart-page`, {
@@ -550,10 +547,7 @@ async function fetchPublishCartDrawerBoosters() {
 // Product Page Publish Booster  Api Call Function 
 async function fetchPublishBoosters() {
 
-    const headers = {
-        "Access-Control-Allow-Origin": "*", // Ensure that CORS is configured on the server
-        "Content-Type": "application/json",
-    };
+
 
     try {
         const response = await fetch(`${localUrl}/getAllPublishBooster?shop=${shop}&type=product-page`, {
@@ -576,10 +570,7 @@ async function fetchPublishBoosters() {
 
 // Announcement Bar Publish Booster Api Call Function 
 async function fetchPublishAnnouncementBoosters() {
-    const headers = {
-        "Access-Control-Allow-Origin": "*", // Ensure that CORS is configured on the server
-        "Content-Type": "application/json",
-    };
+
 
     try {
         const response = await fetch(`${localUrl}/getAllPublishBooster?shop=${shop}&type=announcement`, {
