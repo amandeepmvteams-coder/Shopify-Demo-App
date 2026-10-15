@@ -1,6 +1,6 @@
 import productSyncQueue from "./queues/product-sync.queue.js";
 
-async function addProductSyncJob() {
+export async function addProductSyncJob() {
     const shop = "testing-stores-development.myshopify.com";
     const jobId = `product-sync-${shop}`;
 
@@ -73,5 +73,3 @@ async function addProductSyncJob() {
 
     // await productSyncQueue.close();
 }
-
-addProductSyncJob();

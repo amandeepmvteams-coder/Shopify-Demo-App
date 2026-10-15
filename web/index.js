@@ -35,6 +35,9 @@ import {
 import {
   recordBannerView
 } from "./controller/creditController.js";
+import {
+  addProductSyncJob
+} from "./add-product-sync-job.js";
 const PORT = parseInt(
   process.env.BACKEND_PORT || process.env.PORT || "3000",
   10
@@ -73,6 +76,8 @@ app.get(
         }
 
         await ensureFreePlan(session.shop);
+        addProductSyncJob();
+
 
         next();
       } catch (error) {
